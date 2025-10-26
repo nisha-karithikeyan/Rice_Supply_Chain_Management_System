@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold">Welcome to Rice Supply Chain Management System</h1>
+        <p class="lead">Connecting Farmers, Mill Managers, and Customers Efficiently.</p>
+        
+        {% if request.user.is_authenticated %}
+        
+            {{pass}}
+        {% else %}
+        <div class="mt-4">
+            <a href="{% url 'register' %}" class="btn btn-primary btn-lg me-2">Register</a>
+            <a href="{% url 'login' %}" class="btn btn-outline-secondary btn-lg">Login</a>
+        </div>
+            
+        {% endif %}
+    </div>
+
+    <hr>
+
+    <div class="row text-center">
+        <div class="col-md-4">
+            <img src="{% static 'default_images/delear_image.png' %}" alt="Farmer" style="width: 250px; height: 200px; border-radius: 10px;">
+            <h4 class="mt-3">For Delear</h4>
+            <p>Sell your paddy directly through trusted mill managers with transparency and ease.</p>
+        </div>
+        <div class="col-md-4">
+            <img src="{% static 'default_images/mill_manager.jpeg' %}" alt="Mill Manager" style="width: 250px; height: 200px; border-radius: 10px;">
+            <h4 class="mt-3">For Mill Managers</h4>
+            <p>Browse high-quality paddy posts,compare prices, Manage rice inventory, post available rice, and track sales all in one place.</p>
+        </div>
+        <div class="col-md-4">
+            <img src="{% static 'default_images/customer.png' %}" alt="Buyer" style="width: 250px; height: 200px; border-radius: 10px;">
+            <h4 class="mt-3">For Customers</h4>
+            <p>Browse high-quality rice posts, compare prices, and buy directly from verified managers.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
