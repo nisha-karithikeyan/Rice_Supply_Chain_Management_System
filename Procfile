@@ -1,0 +1,1 @@
+web: gunicorn Rice_Supply_Chain_Management_System.wsgi
